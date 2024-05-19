@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+    int n,num=1;
+    scanf("%d",&n);
+    for(int i=0;i<(n/2);i++)
+    {   
+        for(int j=0;j<n;j++)
+        {   
+            printf("%.03d ",num++);
+        }
+        printf("\n");
+        num=n+num;
+    }
+    if(n%2==0)
+    {  num=num-n;
+        for(int j=0;j<n;j++)
+        {   
+            printf("%.03d ",num++);
+        }
+        printf("\n");
+    }
+    else
+    {
+        for(int j=0;j<n;j++)
+        {   
+            printf("%.03d ",num++);
+        }
+        printf("\n");
+        num=num+n;
+    }
+    int temp=(n%2==0)?(n/2)-1 : (n/2);
+    for(int i=0;i<temp;i++)
+    {   num=num-(n*2)-n;
+        for(int j=0;j<n;j++)
+        {   
+            printf("%.03d ",num++);
+        }
+        printf("\n");
+    }
+    return 0;
+}
