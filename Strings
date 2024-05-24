@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char first[1000], second[1000], result[1000];
+    scanf("%s %s", first, second);
+
+    int len1 = strlen(first);
+    int len2 = strlen(second);
+
+    int freq[256] = {0}; 
+
+    
+    for (int i = 0; i < len1; i++) {
+        freq[first[i]] = 1;
+    }
+
+    int resultIndex = 0;
+
+   
+    for (int i = 0; i < len2; i++) {
+        
+        if (freq[second[i]] == 0) {
+            result[resultIndex++] = second[i];
+        }
+    }
+
+    result[resultIndex] = '\0'; 
+    printf("%s\n", result);
+
+    return 0;
+}
