@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+#include <string.h>
+
+int dateDifference(const char *dateStr1, const char *dateStr2) {
+    struct tm date1 = {};
+    struct tm date2 = {};
+    
+    if (strptime(dateStr1, "%d/%m/%Y", &date1) == NULL || strptime(dateStr2, "%d/%m/%Y", &date2) == NULL) {
+        return -1;  
+    }
+    time_t time1 = mktime(&date1);
+    time_t time2 = mktime(&date2);
+    
+    time_t difference = difftime(time2, time1);
+    
+    int daysDifference = (int)(difference / (24 * 3600));
+    return daysDifference;
+}
+
+int main() {
+    char dateStr1[11], dateStr2[11];
+    scanf("%s %s", dateStr1, dateStr2);
+    int difference = dateDifference(dateStr1, dateStr2);
+    if (difference == -1) {
+        printf("Invalid\n");
+    } else {
+        printf("%d\n", difference);
+    }
+    return 0;
+}
