@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+
+struct node
+{
+    int data;
+    struct node *next;
+};
+
+int main() {
+    struct node *head,*newnode,*temp,*tail;
+    head = 0;
+    int elem=0;
+    while(elem!=-1)
+    {
+        scanf("%d",&elem);
+        if(elem==-1)
+        {
+            break;
+        }
+            newnode=(struct node*)malloc(sizeof(struct node));
+            newnode->data=elem;
+            newnode->next=0;
+            if(head==0)
+            {
+                head=newnode;
+                tail=newnode;
+            }
+            else{
+                tail->next=newnode;
+                tail=newnode;
+                
+            }
+        
+    }
+    temp=head;
+    while(temp!=0)
+    {
+        printf("%d ",temp->data);
+        temp=temp->next;
+    }
+   
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    return 0;
+}
